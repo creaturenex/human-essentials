@@ -11,7 +11,6 @@
 #  state                  :integer          default("scheduled"), not null
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
-#  event_id               :string
 #  organization_id        :integer
 #  partner_id             :integer
 #  storage_location_id    :integer
@@ -32,7 +31,7 @@ FactoryBot.define do
         item { nil }
       end
 
-      storage_location { create :storage_location, :with_items, item: item }
+      storage_location { create :storage_location, :with_items, item: item, organization: organization }
 
       after(:build) do |instance, evaluator|
         item = if evaluator.item.nil?

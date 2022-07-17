@@ -5,14 +5,14 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-ruby "3.0.2"
+ruby "3.1.2"
 
 ###### BASIC FRAMEWORKS ######
 
 # User management and login workflow.
 gem "devise", '>= 4.7.1'
 # Postgres database adapter.
-gem "pg", "~> 1.3.5"
+gem "pg", "~> 1.4.1"
 # Web server.
 gem "puma"
 # Rails web framework.
@@ -32,28 +32,18 @@ gem "money-rails"
 # Tracks history / audits models.
 gem "paper_trail"
 # Enforces "safe" migrations.
-gem "strong_migrations", "~> 1.0.0"
+gem "strong_migrations", "1.2.0"
 
 ##### JAVSCRIPT/CSS/ASSETS #######
 
+gem 'bootstrap-select-rails'
 # Bootstrap is a library for HTML, CSS and JS.
 gem 'bootstrap', '~> 4.6.0'
-# Displays a date range picker, i.e. a way for a user to select a start and end date in
-# a single widget.
-gem 'bootstrap-daterangepicker-rails'
-# Installs fonts for Rails frontend.
-gem "font-awesome-rails"
-# A jQuery calendar widget.
-gem "fullcalendar-rails"
 # jQuery framework (DOM methods, Ajax, chaining, etc.)
 gem "jquery-rails"
 gem "jquery-ui-rails"
-# JavaScript date handling functions
-gem "momentjs-rails"
 # SASS CSS framework (nested selectors, variables, etc.)
 gem "sass-rails"
-# Toast (non-blocking notification) library.
-gem "toastr-rails"
 # JavaScript minified, used in asset compilation.
 gem "uglifier", ">= 1.3.0"
 # JavaScript bundler.
@@ -78,6 +68,7 @@ gem "omniauth-rails_csrf_protection"
 # Allow login via Google.
 gem "omniauth-google-oauth2"
 
+gem "matrix"
 # Generate PDFs as views.
 gem "prawn-rails"
 # Reduces boilerplate HTML code when writing forms.
@@ -115,7 +106,7 @@ gem "jwt"
 gem "mini_racer", "~> 0.6.0"
 gem "nokogiri", ">= 1.10.4"
 gem "image_processing"
-gem "sprockets", "~> 4.0.3"
+gem "sprockets", "~> 4.1.1"
 
 group :production do
   # Reduce the noise of logs and include custom fields to it for easier access

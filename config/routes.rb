@@ -52,7 +52,9 @@ Rails.application.routes.draw do
     end
     resources :families
     resources :authorized_family_members
-    resources :distributions, only: [:index]
+    resources :distributions, only: [:index] do
+      get :print, on: :member
+    end
   end
 
   # This is where a superadmin CRUDs all the things
@@ -117,6 +119,7 @@ Rails.application.routes.draw do
       collection do
         get :schedule
         get :pickup_day
+        get :itemized_breakdown
       end
       patch :picked_up, on: :member
     end

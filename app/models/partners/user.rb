@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: users
+# Table name: partner_users
 #
 #  id                     :bigint           not null, primary key
 #  current_sign_in_at     :datetime
@@ -28,7 +28,7 @@
 #
 module Partners
   class User < Base
-    self.table_name = "users"
+    self.table_name = "partner_users"
 
     # If you change any of these options, adjust ConsolidatedLoginsController::DeviseMappingShunt accordingly
     devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable,
@@ -38,7 +38,7 @@ module Partners
     has_many :submitted_partner_requests, class_name: 'Partners::Request', foreign_key: :partner_user_id, dependent: :destroy, inverse_of: :partner_user
     has_many :submitted_requests, class_name: 'Request', foreign_key: :partner_user_id, dependent: :destroy, inverse_of: :partner_user
 
-    belongs_to :partner, dependent: :destroy
+    belongs_to :partner, class_name: "Partners::Partner", dependent: :destroy
 
     validate :password_complexity
 
